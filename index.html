@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="A special Valentine's Day message just for you ❤️">
+  <meta name="theme-color" content="#8B0000">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="💌 Something Special For You">
+  <meta property="og:description" content="A special Valentine's Day message just for you ❤️">
+  <meta property="og:type" content="website">
+
+  <title>💌 Something Special For You</title>
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Preload critical assets -->
+  <link rel="preload" href="lsser-panda-beige.gif" as="image">
+  <link rel="preload" href="flower-cartoon.png" as="image">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <!-- Favicon -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💌</text></svg>">
+  <link rel="apple-touch-icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💌</text></svg>">
+</head>
+
+<body>
+  <div class="app-container">
+    <!-- Music Player -->
+    <audio id="bg-music" loop>
+      <source src="Strawberries.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-toggle" class="nav-btn music-toggle" aria-label="Toggle Music">
+      <span class="icon-music">🎵</span>
+      <span class="icon-mute" style="display: none;">🔇</span>
+    </button>
+
+    <!-- Vignette Overlay -->
+    <div class="vignette"></div>
+
+    <!-- Floating Particles Container -->
+    <div id="particles-container" class="particles-container"></div>
+
+    <!-- Navigation Buttons -->
+    <button class="nav-btn nav-prev" id="nav-prev" aria-label="Previous page">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+      </svg>
+    </button>
+    <button class="nav-btn nav-next" id="nav-next" aria-label="Next page">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
+      </svg>
+    </button>
+
+    <!-- ============================================
+         PAGE 1: Mailbox Landing
+         ============================================ -->
+    <section id="page-mailbox" class="page page-mailbox active">
+      <!-- Page Decorations -->
+      <div class="page-sparkles">
+        <span class="sparkle-icon" style="top: 8%; left: 5%;">✨</span>
+        <span class="sparkle-icon" style="top: 15%; right: 8%;">💕</span>
+        <span class="sparkle-icon" style="top: 75%; left: 8%;">💗</span>
+        <span class="sparkle-icon" style="top: 80%; right: 6%;">✨</span>
+        <span class="sparkle-icon" style="top: 45%; left: 3%;">💖</span>
+        <span class="sparkle-icon" style="top: 50%; right: 4%;">💝</span>
+      </div>
+
+      <!-- Background Animations -->
+      <div class="rising-balloons-container">
+        <div class="balloon b1">🎈</div>
+        <div class="balloon b2">🎈</div>
+        <div class="balloon b3">🎈</div>
+        <div class="balloon b4">🎈</div>
+        <div class="balloon b5">🎈</div>
+        <div class="balloon b6">🎈</div>
+      </div>
+
+      <!-- New Decorative Elements -->
+      <div class="fairy-lights-container">
+        <div class="light-string"></div>
+        <div class="light-bulb red"></div>
+        <div class="light-bulb white"></div>
+        <div class="light-bulb red"></div>
+        <div class="light-bulb white"></div>
+        <div class="light-bulb red"></div>
+        <div class="light-bulb white"></div>
+        <div class="light-bulb red"></div>
+        <div class="light-bulb white"></div>
+      </div>
+
+
+
+      <div class="decorations-container">
+        <div class="floating-doodle cloud-1">☁️</div>
+        <div class="floating-doodle cloud-2">☁️</div>
+        <div class="floating-doodle heart-arrow">💘</div>
+        <div class="floating-doodle flower-1">🌸</div>
+        <div class="floating-doodle flower-2">🌺</div>
+        <div class="floating-doodle stars-1">✨</div>
+        <div class="floating-doodle stars-2">✨</div>
+      </div>
+
+      <div class="page-content">
+        <h1 class="intro-text">It looks like there's something for you…</h1>
+
+        <!-- Mailbox -->
+        <div class="mailbox-container">
+          <div class="mailbox">
+            <!-- Mailbox Top -->
+            <div class="mailbox-top"></div>
+
+            <!-- Mailbox Body -->
+            <div class="mailbox-body">
+              <!-- Letter positioned here for z-indexing (Layer 4) -->
+              <div class="letter-container">
+                <div class="letter">
+                  <!-- Envelope Pattern -->
+                  <div class="envelope-pattern"></div>
+                  <!-- Wax Seal -->
+                  <div class="wax-seal" role="button" aria-label="Open letter" tabindex="0">
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mask to hide letter when inside (Layer 5) -->
+              <div class="mailbox-mask"></div>
+
+              <!-- Mail Slot (Layer 6) -->
+              <div class="mailbox-slot-container">
+                <div class="mailbox-slot-visual"></div>
+              </div>
+              <div class="mailbox-text">Mailbox</div>
+
+
+            </div>
+          </div>
+        </div>
+
+        <p class="click-hint">
+          <span>Click the seal to open🤍</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         PAGE 2: Envelope Opening
+         ============================================ -->
+    <section id="page-envelope" class="page page-envelope">
+      <!-- Page Decorations -->
+      <div class="page-sparkles">
+        <span class="sparkle-icon" style="top: 10%; left: 6%;">💌</span>
+        <span class="sparkle-icon" style="top: 12%; right: 7%;">✨</span>
+        <span class="sparkle-icon" style="top: 70%; left: 5%;">💘</span>
+        <span class="sparkle-icon" style="top: 75%; right: 8%;">💕</span>
+        <span class="sparkle-icon" style="top: 40%; left: 4%;">✨</span>
+        <span class="sparkle-icon" style="top: 55%; right: 5%;">💓</span>
+      </div>
+      <div class="envelope-scene">
+        <div class="envelope" role="button" aria-label="Open envelope" tabindex="0">
+          <!-- Envelope Back -->
+          <div class="envelope-back">
+            <!-- Static red hearts on envelope -->
+            <div class="static-hearts">
+              <svg class="static-heart" style="top: 12%; left: 10%;" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="static-heart" style="top: 8%; left: 30%;" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="static-heart" style="top: 15%; left: 55%;" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="static-heart" style="top: 10%; right: 15%;" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="static-heart" style="top: 35%; left: 8%;" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="static-heart" style="top: 40%; left: 25%;" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="static-heart" style="top: 32%; right: 25%;" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="static-heart" style="top: 38%; right: 10%;" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="static-heart" style="top: 60%; left: 12%;" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="static-heart" style="top: 65%; left: 35%;" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="static-heart" style="top: 58%; right: 30%;" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="static-heart" style="top: 62%; right: 12%;" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="static-heart" style="top: 78%; left: 20%;" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="static-heart" style="top: 75%; right: 22%;" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+            </div>
+            <!-- Floating hearts - anti-gravity particles behind envelope -->
+            <div class="envelope-hearts-back">
+              <svg class="float-heart" data-speed="slow" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="float-heart glow" data-speed="medium" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="float-heart" data-speed="fast" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="float-heart" data-speed="slow" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="float-heart glow" data-speed="medium" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="float-heart" data-speed="fast" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="float-heart" data-speed="slow" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="float-heart glow" data-speed="medium" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="float-heart" data-speed="fast" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="float-heart" data-speed="slow" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="float-heart glow" data-speed="medium" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="float-heart" data-speed="fast" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="float-heart" data-speed="slow" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="float-heart glow" data-speed="medium" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              <svg class="float-heart" data-speed="fast" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Envelope Front (bottom fold) -->
+          <div class="envelope-front"></div>
+
+          <!-- Envelope Flap (openable) -->
+          <div class="envelope-flap"></div>
+
+          <!-- Floating hearts - front layer (above envelope, not blocking seal) -->
+          <div class="envelope-hearts-front">
+            <svg class="float-heart" data-speed="slow" viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+            <svg class="float-heart glow" data-speed="medium" viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+            <svg class="float-heart" data-speed="fast" viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+            <svg class="float-heart" data-speed="slow" viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+            <svg class="float-heart glow" data-speed="medium" viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+            <svg class="float-heart" data-speed="fast" viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+            <svg class="float-heart" data-speed="slow" viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+            <svg class="float-heart glow" data-speed="medium" viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+            <svg class="float-heart" data-speed="fast" viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+            <svg class="float-heart" data-speed="slow" viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+            <svg class="float-heart glow" data-speed="medium" viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+            <svg class="float-heart" data-speed="fast" viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+            <svg class="float-heart" data-speed="slow" viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+            <svg class="float-heart glow" data-speed="medium" viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+            <svg class="float-heart" data-speed="fast" viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+          </div>
+
+          <!-- Wax Seal on Envelope -->
+          <div class="wax-seal"
+            style="position: absolute; top: 52%; left: 50%; transform: translate(-50%, -50%) scale(1.2); z-index: 10;">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+          </div>
+        </div>
+        <p class="click-anywhere">Click the seal to open🤍</p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         PAGE 3: Sweet Note & Bouquet
+         ============================================ -->
+    <section id="page-note" class="page page-note">
+      <!-- Corner Hearts -->
+      <svg class="corner-heart top-left" viewBox="0 0 24 24" width="50" height="50">
+        <path
+          d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+          fill="#FFB6C1" opacity="0.4" />
+      </svg>
+      <svg class="corner-heart top-right" viewBox="0 0 24 24" width="40" height="40">
+        <path
+          d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+          fill="#E74C6D" opacity="0.3" />
+      </svg>
+      <svg class="corner-heart bottom-left" viewBox="0 0 24 24" width="35" height="35">
+        <path
+          d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+          fill="#FF91A4" opacity="0.35" />
+      </svg>
+      <svg class="corner-heart bottom-right" viewBox="0 0 24 24" width="45" height="45">
+        <path
+          d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+          fill="#FFB6C1" opacity="0.3" />
+      </svg>
+
+      <!-- Floating Sparkles -->
+      <div class="sparkle sparkle-1">✨</div>
+      <div class="sparkle sparkle-2">💕</div>
+      <div class="sparkle sparkle-3">✨</div>
+      <div class="sparkle sparkle-4">💖</div>
+      <div class="sparkle sparkle-5">✨</div>
+      <div class="sparkle sparkle-6">💗</div>
+      <div class="sparkle sparkle-7">✨</div>
+      <div class="sparkle sparkle-8">💝</div>
+
+      <!-- Side Decorations - Left -->
+      <svg class="side-decoration left" viewBox="0 0 60 300">
+        <path d="M30 0 Q50 75 30 150 Q10 225 30 300" stroke="#FFB6C1" stroke-width="2" fill="none" opacity="0.6" />
+        <circle cx="30" cy="30" r="6" fill="#E74C6D" opacity="0.4" />
+        <circle cx="22" cy="75" r="5" fill="#FFB6C1" opacity="0.5" />
+        <circle cx="35" cy="120" r="7" fill="#FF91A4" opacity="0.4" />
+        <circle cx="25" cy="165" r="5" fill="#E74C6D" opacity="0.35" />
+        <circle cx="32" cy="210" r="6" fill="#FFB6C1" opacity="0.45" />
+        <circle cx="28" cy="255" r="5" fill="#FF91A4" opacity="0.4" />
+        <!-- Mini hearts -->
+        <path d="M20 50 l-3-3 c-1.5-1.5 0-4 2-2 l1 1 l1-1 c2-2 3.5 0.5 2 2 z" fill="#E74C6D" opacity="0.5" />
+        <path d="M38 100 l-3-3 c-1.5-1.5 0-4 2-2 l1 1 l1-1 c2-2 3.5 0.5 2 2 z" fill="#FFB6C1" opacity="0.5" />
+        <path d="M22 180 l-3-3 c-1.5-1.5 0-4 2-2 l1 1 l1-1 c2-2 3.5 0.5 2 2 z" fill="#FF91A4" opacity="0.5" />
+      </svg>
+
+      <!-- Side Decorations - Right -->
+      <svg class="side-decoration right" viewBox="0 0 60 300">
+        <path d="M30 0 Q10 75 30 150 Q50 225 30 300" stroke="#FFB6C1" stroke-width="2" fill="none" opacity="0.6" />
+        <circle cx="30" cy="40" r="5" fill="#FF91A4" opacity="0.4" />
+        <circle cx="38" cy="90" r="6" fill="#E74C6D" opacity="0.45" />
+        <circle cx="25" cy="140" r="5" fill="#FFB6C1" opacity="0.5" />
+        <circle cx="35" cy="190" r="7" fill="#FF91A4" opacity="0.4" />
+        <circle cx="28" cy="240" r="5" fill="#E74C6D" opacity="0.35" />
+        <circle cx="33" cy="280" r="6" fill="#FFB6C1" opacity="0.4" />
+        <!-- Mini hearts -->
+        <path d="M40 60 l-3-3 c-1.5-1.5 0-4 2-2 l1 1 l1-1 c2-2 3.5 0.5 2 2 z" fill="#FFB6C1" opacity="0.5" />
+        <path d="M22 130 l-3-3 c-1.5-1.5 0-4 2-2 l1 1 l1-1 c2-2 3.5 0.5 2 2 z" fill="#E74C6D" opacity="0.5" />
+        <path d="M35 220 l-3-3 c-1.5-1.5 0-4 2-2 l1 1 l1-1 c2-2 3.5 0.5 2 2 z" fill="#FF91A4" opacity="0.5" />
+      </svg>
+
+      <div class="page-content">
+        <!-- Love Note -->
+        <div class="love-note idle-breathe">
+          <h3>Hey Bangaaaraammm!!! </h3>
+          <p>
+            I really really wish we were celebrating this day together 😭😭😭<br><br>
+            But parle..., soon very soon, we’re gonna to celebrate so many more together😤,<br>
+            This is just the beginning, BCCC 💖🔥<br>
+            I LOVE YOUUUU SOOO SOOO SOOOOOO MUUCCHHHHH😘😘😘❤️❤️❤️❤️<br><br>
+            <span style="float: right; margin-top: 10px;"> — BHUVAN🫶</span>
+          </p>
+        </div>
+
+        <!-- Bouquet Section - Using Existing Image with Decorations -->
+        <div class="bouquet-section">
+          <!-- Decorative elements around bouquet -->
+          <span class="bouquet-sparkle" style="top: 0; left: 20%;">✨</span>
+          <span class="bouquet-sparkle" style="top: 10%; right: 15%;">💖</span>
+          <span class="bouquet-sparkle" style="top: 30%; left: 10%;">💕</span>
+          <span class="bouquet-sparkle" style="bottom: 40%; right: 5%;">✨</span>
+          <span class="bouquet-sparkle" style="bottom: 20%; left: 5%;">💗</span>
+          <span class="bouquet-sparkle" style="bottom: 10%; right: 20%;">💝</span>
+
+          <!-- Main bouquet image -->
+          <img src="flower-cartoon.png" alt="Beautiful tulip bouquet" class="bouquet-image idle-float">
+
+          <!-- More sparkles -->
+          <span class="bouquet-sparkle delay-1" style="top: 5%; left: 45%;">✨</span>
+          <span class="bouquet-sparkle delay-2" style="top: 50%; right: 0;">💞</span>
+          <span class="bouquet-sparkle delay-3" style="bottom: 5%; left: 40%;">✨</span>
+        </div>
+
+        <!-- Continue Button -->
+        <button class="continue-btn">
+          Ninnu okati adagali btw... 👉👈
+        </button>
+      </div>
+    </section>
+
+    <!-- ============================================
+         PAGE 4: Valentine Proposal
+         ============================================ -->
+    <section id="page-proposal" class="page page-proposal">
+      <!-- Page Decorations -->
+      <div class="page-sparkles">
+        <span class="sparkle-icon" style="top: 5%; left: 8%;">💘</span>
+        <span class="sparkle-icon" style="top: 8%; right: 10%;">✨</span>
+        <span class="sparkle-icon" style="top: 85%; left: 6%;">💕</span>
+        <span class="sparkle-icon" style="top: 88%; right: 8%;">💖</span>
+        <span class="sparkle-icon" style="top: 35%; left: 4%;">✨</span>
+        <span class="sparkle-icon" style="top: 60%; right: 5%;">💝</span>
+        <span class="sparkle-icon" style="top: 20%; left: 6%;">💗</span>
+        <span class="sparkle-icon" style="top: 70%; right: 6%;">✨</span>
+        <span class="sparkle-icon" style="top: 45%; left: 2%;">💓</span>
+        <span class="sparkle-icon" style="top: 25%; right: 3%;">💞</span>
+        <span class="sparkle-icon" style="top: 55%; left: 7%;">✨</span>
+        <span class="sparkle-icon" style="top: 75%; right: 4%;">💗</span>
+        <span class="sparkle-icon" style="top: 15%; right: 15%;">💕</span>
+        <span class="sparkle-icon" style="top: 92%; left: 15%;">✨</span>
+      </div>
+
+      <!-- Hanging Hearts (left side - like reference image) -->
+      <div class="hanging-hearts">
+        <div class="hanging-heart" style="left: 15px; animation-delay: 0s;">
+          <div class="heart-string h2"></div>
+          <svg viewBox="0 0 24 24" fill="#C41E3A">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+        </div>
+        <div class="hanging-heart large" style="left: 45px; animation-delay: 0.4s;">
+          <div class="heart-string h4"></div>
+          <svg viewBox="0 0 24 24" fill="#E74C6D">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+        </div>
+        <div class="hanging-heart" style="left: 80px; animation-delay: 0.8s;">
+          <div class="heart-string h1"></div>
+          <svg viewBox="0 0 24 24" fill="#C41E3A">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+        </div>
+        <div class="hanging-heart" style="left: 110px; animation-delay: 1.2s;">
+          <div class="heart-string h5"></div>
+          <svg viewBox="0 0 24 24" fill="#E74C6D">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+        </div>
+        <div class="hanging-heart small" style="left: 60px; animation-delay: 0.6s;">
+          <div class="heart-string h3"></div>
+          <svg viewBox="0 0 24 24" fill="#C41E3A">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+        </div>
+        <div class="hanging-heart" style="left: 140px; animation-delay: 1s;">
+          <div class="heart-string h6"></div>
+          <svg viewBox="0 0 24 24" fill="#C41E3A">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Corner Hearts -->
+      <svg class="corner-heart top-left" viewBox="0 0 24 24" fill="#C41E3A">
+        <path
+          d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+      </svg>
+
+      <svg class="corner-heart bottom-right" viewBox="0 0 24 24" fill="#C41E3A">
+        <path
+          d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+      </svg>
+
+      <!-- Additional corner decoration -->
+      <svg class="corner-heart top-right" viewBox="0 0 24 24" fill="#FFB6C1"
+        style="position:absolute;top:60px;right:60px;width:50px;opacity:0.3;">
+        <path
+          d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+      </svg>
+
+      <svg class="corner-heart bottom-left" viewBox="0 0 24 24" fill="#E74C6D"
+        style="position:absolute;bottom:60px;left:60px;width:45px;opacity:0.25;">
+        <path
+          d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+      </svg>
+
+      <!-- Date Badge -->
+      <div class="date-badge">
+        <div class="date-badge-day">14</div>
+        <div class="date-badge-month">FEB</div>
+      </div>
+
+      <!-- Paper Airplane -->
+      <svg class="paper-plane" viewBox="0 0 24 24" fill="#C41E3A">
+        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+      </svg>
+
+      <!-- Love letter decoration (right side) -->
+      <div class="love-envelope-deco">
+        <span>💌</span>
+      </div>
+
+      <div class="page-content">
+        <!-- Couple Illustration -->
+        <div class="couple-illustration">
+          <img src="lsser-panda-beige.gif" alt="Cute panda pair" class="proposal-gif"
+            style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+
+        <h1 class="proposal-heading">Reshma...<br>Will you be my Valentine?</h1>
+
+        <!-- Buttons -->
+        <div class="buttons-container">
+          <button class="btn btn-primary btn-yes hover-scale">
+            YES OF COURSE 💖
+          </button>
+          <button class="btn btn-secondary btn-no">
+            NO PAKKAKELLI AADUKO
+          </button>
+        </div>
+      </div>
+
+      <!-- Heart Burst Container -->
+      <div class="heart-burst-container"></div>
+
+      <!-- Final Message Overlay -->
+      <div class="final-message">
+        <img src="gif1.gif" alt="Celebration" class="yay-gif">
+        <h2>YAY🥳💕</h2>
+        <p
+          style="font-family: var(--font-handwritten); font-size: 1.4rem; color: #ff6b81; margin-top: -10px; margin-bottom: 20px;">
+          (Nak thelusu le YES ani
+          click chesthav ani 😁🥰😚)</p>
+        <button class="btn btn-primary btn-memories" id="btn-memories">Forever starts now ✨</button>
+      </div>
+    </section>
+
+    <!-- ============================================
+         PAGE 5: Our Memories
+         ============================================ -->
+    <section id="page-memories" class="page page-memories">
+      <!-- Background Animations -->
+      <!-- Background Animations -->
+      <div class="rising-balloons-container">
+        <div class="balloon b1">🎈</div>
+        <div class="balloon b2">🎈</div>
+        <div class="balloon b3">🎈</div>
+        <div class="balloon b4">🎈</div>
+        <div class="balloon b5">🎈</div>
+        <div class="balloon b6">🎈</div>
+        <div class="balloon b7">🎈</div>
+        <div class="balloon b8">🎈</div>
+        <div class="balloon b9">🎈</div>
+        <div class="balloon b10">🎈</div>
+        <div class="balloon b11">🎈</div>
+        <div class="balloon b12">🎈</div>
+      </div>
+
+      <div class="floating-hearts-bg">
+        <div class="bg-heart h1">💖</div>
+        <div class="bg-heart h2">💕</div>
+        <div class="bg-heart h3">💗</div>
+        <div class="bg-heart h4">💓</div>
+        <div class="bg-heart h5">💝</div>
+        <div class="bg-heart h6">💖</div>
+        <div class="bg-heart h7">💕</div>
+        <div class="bg-heart h8">💗</div>
+        <div class="bg-heart h9">💓</div>
+        <div class="bg-heart h10">💝</div>
+        <div class="bg-heart h11">💖</div>
+        <div class="bg-heart h12">💕</div>
+      </div>
+
+      <div class="drifting-clouds-bg">
+        <div class="bg-cloud c1">☁️</div>
+        <div class="bg-cloud c2">☁️</div>
+        <div class="bg-cloud c3">☁️</div>
+        <div class="bg-cloud c4">☁️</div>
+      </div>
+
+      <div class="falling-petals-bg">
+        <div class="bg-petal p1">🌹</div>
+        <div class="bg-petal p2">🌸</div>
+        <div class="bg-petal p3">🌹</div>
+        <div class="bg-petal p4">🌸</div>
+        <div class="bg-petal p5">🌹</div>
+        <div class="bg-petal p6">🌸</div>
+        <div class="bg-petal p7">🌹</div>
+        <div class="bg-petal p8">🌸</div>
+        <div class="bg-petal p9">🌹</div>
+        <div class="bg-petal p10">🌸</div>
+      </div>
+
+
+      <!-- Page Decorations -->
+      <div class="page-sparkles">
+        <span class="sparkle-icon" style="top: 5%; left: 6%;">💕</span>
+        <span class="sparkle-icon" style="top: 10%; right: 8%;">✨</span>
+        <span class="sparkle-icon" style="top: 80%; left: 5%;">💖</span>
+        <span class="sparkle-icon" style="top: 85%; right: 6%;">💝</span>
+        <span class="sparkle-icon" style="top: 40%; left: 3%;">✨</span>
+        <span class="sparkle-icon" style="top: 55%; right: 4%;">💗</span>
+      </div>
+
+      <div class="page-content">
+        <h1 class="memories-heading">Our Memories 💕</h1>
+        <p class="memories-subtext">Every moment with you feels magic ✨</p>
+
+        <!-- Memory Gallery -->
+        <div class="memories-gallery">
+          <div class="memory-card">
+            <img src="images/i1.jpg" alt="Memory 1">
+          </div>
+          <div class="memory-card">
+            <img src="images/i2.jpg" alt="Memory 2">
+          </div>
+          <div class="memory-card">
+            <img src="images/i3.jpg" alt="Memory 3">
+          </div>
+        </div>
+
+        <!-- Collage of other memories -->
+        <div class="memories-collage">
+          <div class="collage-item"><img src="images/IMG_9009.jpg" alt="Memory" loading="lazy"></div>
+          <div class="collage-item collage-video"><video src="images/19F163A3-F7B9-436E-B632-23512031BCB0.mp4" muted
+              loop playsinline></video></div>
+          <div class="collage-item"><img src="images/IMG-20251018-WA0020.jpg" alt="Memory" loading="lazy"></div>
+          <div class="collage-item"><img src="images/0.jpg" alt="Memory" loading="lazy"></div>
+          <div class="collage-item"><img src="images/IMG-20250807-WA0044.jpg" alt="Memory" loading="lazy"></div>
+          <div class="collage-item collage-video"><video src="images/C9C04CBD-AA8C-46C3-9246-7DCD01B7FA2F.mp4" muted
+              loop playsinline></video></div>
+          <div class="collage-item"><img src="images/IMG_9172.jpg" alt="Memory" loading="lazy"></div>
+          <div class="collage-item"><img src="images/IMG-20250620-WA0043.jpg" alt="Memory"></div>
+          <div class="collage-item"><img src="images/2B14FDE3-655D-487E-ACB0-9BCA74ED045A.jpg" alt="Memory"></div>
+          <div class="collage-item"><img src="images/v1.jpg" alt="Memory"></div>
+          <div class="collage-item"><img src="images/IMG-20251018-WA0048.jpg" alt="Memory"></div>
+          <div class="collage-item"><img src="images/Snapchat-1530740767.jpg" alt="Memory"></div>
+          <div class="collage-item collage-video"><video src="images/A601E35F-93E7-402E-A30D-B0F8758FA039.mp4" muted
+              loop playsinline></video></div>
+          <div class="collage-item"><img src="images/IMG_20260126_095935_126.jpg" alt="Memory"></div>
+          <div class="collage-item"><img src="images/IMG-20250807-WA0047.jpg" alt="Memory"></div>
+          <div class="collage-item"><img src="images/IMG_9148.jpg" alt="Memory"></div>
+          <div class="collage-item collage-video"><video src="images/059F0818-4AFA-47C3-8CF7-0E9A449DB3E9.mp4" muted
+              loop playsinline></video></div>
+          <div class="collage-item"><img src="images/IMG-20250807-WA0041.jpg" alt="Memory"></div>
+          <div class="collage-item"><img src="images/IMG_9071.jpg" alt="Memory"></div>
+          <div class="collage-item"><img src="images/IMG-20251222-WA0065.jpg" alt="Memory"></div>
+        </div>
+
+        <p class="memories-footer">More memories to come...💞</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/physics.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/transitions.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

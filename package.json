@@ -1,0 +1,9 @@
+{
+  "name": "valentines-day",
+  "version": "1.0.0",
+  "description": "A special Valentine's Day website",
+  "scripts": {
+    "dev": "npx -y http-server . -p 8080 -c-1 --cors -o",
+    "start": "npx -y http-server . -p 8080 -c-1 --cors"
+  }
+}
