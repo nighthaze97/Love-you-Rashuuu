@@ -705,19 +705,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         spread: 120
                     });
 
-                    // Emoji Rain (spawn 3-5 emojis per tick)
+                    // Cap active celebration emojis to prevent DOM overflow
+                    const activeEmojis = document.querySelectorAll('.celebration-emoji');
+                    if (activeEmojis.length > 40) return;
+
+                    // Emoji Rain (spawn 4 emojis per tick)
                     for (let i = 0; i < 4; i++) {
                         const emoji = document.createElement('div');
                         emoji.classList.add('celebration-emoji'); // Tag for cleanup
                         emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-                        emoji.style.position = 'fixed';
-                        emoji.style.left = Math.random() * 100 + 'vw';
-                        emoji.style.top = '-50px';
-                        emoji.style.fontSize = (Math.random() * 30 + 20) + 'px';
-                        emoji.style.zIndex = '1002'; // Above hearts and overlay
-                        emoji.style.pointerEvents = 'none';
-                        emoji.style.transition = `top ${Math.random() * 2 + 3}s linear, opacity 0.5s ease-in`;
-                        emoji.style.opacity = '0';
+                        emoji.style.cssText = `position:fixed;left:${Math.random() * 100}vw;top:-50px;font-size:${Math.random() * 30 + 20}px;z-index:1002;pointer-events:none;transition:top ${Math.random() * 2 + 3}s linear, opacity 0.5s ease-in;opacity:0;`;
 
                         document.body.appendChild(emoji);
 
@@ -725,7 +722,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         requestAnimationFrame(() => {
                             emoji.style.opacity = '1';
                             emoji.style.top = '110vh'; // Fall off screen
-                            // Add some drift and rotation
                             emoji.style.transform = `translateX(${(Math.random() - 0.5) * 100}px) rotate(${Math.random() * 360}deg)`;
                         });
 
@@ -734,7 +730,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             emoji.remove();
                         }, 5000);
                     }
-                }, 600); // 600ms for more frequent shower
+                }, 500); // 500ms interval for dense shower
             }
         }, 800);
     }

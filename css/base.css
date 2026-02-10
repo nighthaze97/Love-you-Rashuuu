@@ -24,7 +24,8 @@
     position: absolute;
     font-size: 1.4rem;
     opacity: 0.8;
-    animation: floatAndWobble 4s ease-in-out infinite, sparkleGlow 2.5s ease-in-out infinite;
+    animation: floatAndWobble 4s ease-in-out infinite;
+    will-change: transform, opacity;
 }
 
 .sparkle-icon:nth-child(odd) {
@@ -50,9 +51,8 @@
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background: rgba(233, 30, 99, 0.8);
-    /* Reddish Pink */
-    backdrop-filter: blur(10px);
+    background: rgba(233, 30, 99, 0.9);
+    /* Reddish Pink - slightly more opaque to compensate for removed blur */
     border: 2px solid rgba(255, 255, 255, 0.3);
     color: white;
     cursor: pointer;
@@ -60,7 +60,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
     opacity: 0.8;
     box-shadow: 0 4px 10px rgba(233, 30, 99, 0.4);
 }
@@ -351,4 +351,72 @@ button:not(.nav-btn):hover,
 .btn-no {
     font-weight: bold;
     min-width: 120px;
+}
+
+/* ============================================
+   Mobile Responsive - Base
+   ============================================ */
+@media (max-width: 768px) {
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+        top: 15px;
+    }
+
+    .nav-prev {
+        left: 12px;
+    }
+
+    .nav-next {
+        right: 12px;
+    }
+
+    .music-toggle {
+        right: 62px;
+    }
+
+    .nav-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Reduce spacing for mobile */
+    :root {
+        --spacing-lg: 1.5rem;
+        --spacing-xl: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-btn {
+        width: 36px;
+        height: 36px;
+        top: 10px;
+    }
+
+    .nav-prev {
+        left: 8px;
+    }
+
+    .nav-next {
+        right: 8px;
+    }
+
+    .music-toggle {
+        right: 52px;
+    }
+
+    button:not(.nav-btn),
+    .btn,
+    .continue-btn,
+    .btn-yes,
+    .btn-no {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .btn-yes,
+    .btn-no {
+        min-width: 100px;
+    }
 }

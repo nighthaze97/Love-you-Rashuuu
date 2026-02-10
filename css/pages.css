@@ -305,6 +305,7 @@
     z-index: 2;
     animation: bouquetFloat 4s ease-in-out infinite;
     transform-origin: center bottom;
+    will-change: transform;
 }
 
 @keyframes bouquetFloat {
@@ -333,8 +334,9 @@
     font-size: 1.3rem;
     z-index: 1;
     pointer-events: none;
-    animation: floatAndWobble 2.5s ease-in-out infinite, sparkleGlow 2s ease-in-out infinite;
+    animation: floatAndWobble 2.5s ease-in-out infinite;
     opacity: 0.85;
+    will-change: transform;
 }
 
 .page-note .bouquet-sparkle.delay-1 {
@@ -349,17 +351,17 @@
     animation-delay: 0.9s;
 }
 
-/* Sparkle glow effect */
+/* Sparkle glow effect - optimized to use only transform+opacity */
 @keyframes sparkleGlow {
 
     0%,
     100% {
-        filter: brightness(1);
+        opacity: 0.7;
         transform: scale(1);
     }
 
     50% {
-        filter: brightness(1.3);
+        opacity: 1;
         transform: scale(1.15);
     }
 }
@@ -557,19 +559,6 @@
     margin-right: auto;
 }
 
-@media (max-width: 480px) {
-    .page-proposal .buttons-container {
-        gap: var(--spacing-sm);
-        max-width: 100%;
-        padding: 0 5px;
-    }
-
-    .page-proposal .buttons-container .btn {
-        font-size: 0.9rem;
-        padding: 10px 10px;
-    }
-}
-
 .page-proposal .buttons-container .btn {
     width: 100%;
     min-width: 0;
@@ -652,7 +641,6 @@
 .page-proposal .hanging-heart svg {
     width: 30px;
     height: 30px;
-    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.2));
 }
 
 .page-proposal .hanging-heart.small svg {
@@ -741,7 +729,6 @@
 .page-proposal .final-message.visible {
     opacity: 1;
     visibility: visible;
-    backdrop-filter: blur(5px);
 }
 
 .page-proposal .final-message .yay-gif {
@@ -749,7 +736,7 @@
     height: auto;
     margin-bottom: var(--spacing-lg);
     border-radius: 20px;
-    filter: drop-shadow(0 10px 30px rgba(231, 76, 109, 0.4));
+    box-shadow: 0 10px 30px rgba(231, 76, 109, 0.4);
     animation: bounceIn 1s var(--bounce-easing) forwards;
 }
 
@@ -961,19 +948,15 @@
     display: block;
     object-fit: cover;
     border-radius: 2px;
-    filter: sepia(0.2) contrast(1.1);
-    /* Subtle vintage feel */
     transition: filter 0.3s ease;
 }
 
-/* Video items in collage */
 .collage-item video {
     height: 280px;
     width: auto;
     display: block;
     object-fit: cover;
     border-radius: 2px;
-    filter: sepia(0.2) contrast(1.1);
     transition: filter 0.3s ease;
 }
 
@@ -1080,26 +1063,346 @@
    Responsive Adjustments
    ============================================ */
 
-@media (max-width: 480px) {
+/* --- Tablet (max-width: 768px) --- */
+@media (max-width: 768px) {
+
+    /* Page 1: Mailbox */
     .mailbox-container {
-        transform: scale(0.8);
+        transform: scale(0.85);
+    }
+
+    .page-mailbox .intro-text {
+        font-size: clamp(1.2rem, 4vw, 2rem);
+    }
+
+    /* Page 3: Note & Bouquet */
+    .page-note .love-note {
+        max-width: 90vw;
+        padding: var(--spacing-lg) var(--spacing-md);
+        padding-left: calc(var(--spacing-md) + 20px);
+        padding-right: calc(var(--spacing-md) + 20px);
+    }
+
+    .page-note .bouquet-container {
+        max-width: 250px;
+    }
+
+    .page-note .bouquet-image {
+        max-width: 250px;
+    }
+
+    .page-note .side-decoration {
+        width: 50px;
+        opacity: 0.3;
+    }
+
+    .page-note .side-decoration.left {
+        left: 5px;
+    }
+
+    .page-note .side-decoration.right {
+        right: 5px;
+    }
+
+    /* Page 4: Proposal */
+    .page-proposal .couple-illustration {
+        width: 220px;
+        height: 220px;
+    }
+
+    .page-proposal .hanging-hearts {
+        width: 120px;
+        left: 10px;
+    }
+
+    .page-proposal .hanging-heart svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .page-proposal .hanging-heart.small svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .page-proposal .hanging-heart.large svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .page-proposal .date-badge {
+        top: 60px;
+        right: 15px;
+        transform: scale(0.85);
+    }
+
+    .page-proposal .corner-heart.top-left {
+        top: 30px;
+        left: 25px;
+        width: 50px;
+    }
+
+    .page-proposal .corner-heart.bottom-right {
+        bottom: 30px;
+        right: 25px;
+        width: 65px;
+    }
+
+    .page-proposal .love-envelope-deco {
+        right: 15px;
+        font-size: 2rem;
+    }
+
+    .page-proposal .paper-plane {
+        width: 35px;
+        left: 20px;
+        bottom: 25px;
+    }
+
+    .page-proposal .final-message .yay-gif {
+        width: 200px;
+    }
+
+    /* Page 5: Memories */
+    .page-memories .memories-gallery {
+        gap: 25px;
+        padding: 10px;
+    }
+
+    .page-memories .memory-card img {
+        max-width: 260px;
+    }
+
+    .memories-collage {
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .collage-item img,
+    .collage-item video {
+        height: 200px;
+    }
+
+    .page-memories .memories-footer {
+        font-size: 1.8rem;
+        margin-top: 40px;
+    }
+
+    /* Reduce background elements on tablet */
+    .balloon:nth-child(n+8),
+    .bg-heart:nth-child(n+16),
+    .bg-petal:nth-child(n+11),
+    .bg-cloud:nth-child(n+5) {
+        display: none;
+    }
+}
+
+/* --- Small phones (max-width: 600px) --- */
+@media (max-width: 600px) {
+
+    /* Page 3: Stack vertically */
+    .page-note .page-content {
+        gap: var(--spacing-md);
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    .page-note .love-note {
+        max-width: 95vw;
+        padding: var(--spacing-md);
+        padding-left: calc(var(--spacing-md) + 15px);
+        padding-right: calc(var(--spacing-md) + 15px);
+        font-size: 0.95rem;
+    }
+
+    .page-note .love-note p {
+        font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+        line-height: 1.7;
+    }
+
+    .page-note .bouquet-container {
+        max-width: 200px;
+    }
+
+    .page-note .bouquet-image {
+        max-width: 200px;
+    }
+
+    /* Hide side decorations on small screens */
+    .page-note .side-decoration {
+        display: none;
+    }
+
+    /* Page 4: Proposal adjustments */
+    .page-proposal .page-content {
+        margin-top: -30px;
+        gap: var(--spacing-md);
+        padding: var(--spacing-md);
+    }
+
+    .page-proposal .couple-illustration {
+        width: 180px;
+        height: 180px;
+    }
+
+    .page-proposal .hanging-hearts {
+        width: 80px;
+        left: 5px;
+    }
+
+    .page-proposal .heart-string.h3,
+    .page-proposal .heart-string.h4,
+    .page-proposal .heart-string.h5 {
+        height: 120px;
+    }
+
+    /* Page 5: Memory cards */
+    .page-memories .page-content {
+        padding: 40px 10px 60px;
+        gap: 20px;
+    }
+
+    .page-memories .memory-card {
+        padding: 10px 10px 35px 10px;
+    }
+
+    .page-memories .memory-card img {
+        max-width: 220px;
+    }
+
+    .memories-collage {
+        gap: 15px;
+        padding: 5px;
+    }
+
+    .collage-item {
+        padding: 8px 8px 30px 8px;
+    }
+
+    .collage-item img,
+    .collage-item video {
+        height: 160px;
+    }
+}
+
+/* --- Very small phones (max-width: 480px) --- */
+@media (max-width: 480px) {
+
+    /* Page 1: Mailbox */
+    .mailbox-container {
+        transform: scale(0.7);
+    }
+
+    .page-mailbox .click-hint {
+        font-size: 0.9rem;
+    }
+
+    /* Page 2: Envelope */
+    .page-envelope .click-anywhere {
+        font-size: 0.95rem;
+        margin-top: var(--spacing-md);
+    }
+
+    /* Page 3: Note */
+    .page-note .love-note {
+        border-radius: 8px;
+    }
+
+    .page-note .sparkle {
+        font-size: 0.9rem;
+    }
+
+    .page-note .corner-heart svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Page 4: Proposal */
+    .page-proposal .buttons-container {
+        gap: var(--spacing-sm);
+        max-width: 100%;
+        padding: 0 5px;
+    }
+
+    .page-proposal .buttons-container .btn {
+        font-size: 0.9rem;
+        padding: 10px 10px;
     }
 
     .page-proposal .date-badge {
         top: 15px;
         right: 15px;
-        transform: scale(0.85);
+        transform: scale(0.75);
     }
 
-    .page-proposal .buttons-container {
-        flex-direction: column;
-        gap: var(--spacing-md);
+    .page-proposal .couple-illustration {
+        width: 150px;
+        height: 150px;
+        margin-bottom: var(--spacing-sm);
     }
-}
 
-@media (min-width: 1024px) {
-    .mailbox-container {
-        transform: scale(1.1);
+    .page-proposal .hanging-hearts {
+        width: 60px;
+        left: 2px;
+    }
+
+    .page-proposal .hanging-heart svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .page-proposal .corner-heart {
+        display: none;
+    }
+
+    .page-proposal .paper-plane {
+        display: none;
+    }
+
+    .page-proposal .love-envelope-deco {
+        display: none;
+    }
+
+    .page-proposal .final-message .yay-gif {
+        width: 180px;
+    }
+
+    .page-proposal .final-message h2 {
+        font-size: clamp(2rem, 8vw, 4rem);
+    }
+
+    /* Page 5: Memories */
+    .page-memories .memories-heading {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+    }
+
+    .page-memories .memories-subtext {
+        font-size: clamp(1rem, 4vw, 1.6rem);
+    }
+
+    .page-memories .memory-card img {
+        max-width: 75vw;
+    }
+
+    .collage-item img,
+    .collage-item video {
+        height: 130px;
+    }
+
+    .page-memories .memories-footer {
+        font-size: 1.4rem;
+        margin-top: 30px;
+    }
+
+    /* More aggressive background element reduction */
+    .balloon:nth-child(n+6),
+    .bg-heart:nth-child(n+11),
+    .bg-petal:nth-child(n+8),
+    .bg-cloud:nth-child(n+4) {
+        display: none;
+    }
+
+    .floating-doodle:nth-child(n+4) {
+        display: none;
     }
 }
 
@@ -1294,7 +1597,6 @@
     100% {
         opacity: 1;
         transform: scale(1.1);
-        box-shadow: 0 0 20px currentColor;
     }
 }
 
@@ -1614,7 +1916,6 @@
     position: absolute;
     opacity: 0.3;
     animation: driftClouds 80s linear infinite;
-    filter: blur(2px);
     will-change: transform;
 }
 
@@ -2040,6 +2341,23 @@
     pointer-events: none;
 }
 
+/* PERFORMANCE: Pause all animations on inactive/hidden pages */
+.page:not(.active) .balloon,
+.page:not(.active) .bg-heart,
+.page:not(.active) .bg-petal,
+.page:not(.active) .bg-cloud,
+.page:not(.active) .sparkle-icon,
+.page:not(.active) .floating-doodle,
+.page:not(.active) .float-heart,
+.page:not(.active) .hanging-heart,
+.page:not(.active) .light-bulb,
+.page:not(.active) .bouquet-sparkle,
+.page:not(.active) .corner-heart,
+.page:not(.active) .paper-plane,
+.page:not(.active) .love-envelope-deco {
+    animation-play-state: paused !important;
+}
+
 .page-memories .page-content {
     position: relative;
     z-index: 10;
@@ -2201,7 +2519,6 @@
     fill: #d63031;
     cursor: pointer;
     transition: transform 0.3s ease;
-    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
 }
 
 .wax-seal:hover {

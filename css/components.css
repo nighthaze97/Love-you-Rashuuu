@@ -585,8 +585,7 @@
 
 /* Glow effect for some hearts */
 .float-heart.glow {
-    filter: drop-shadow(0 0 6px rgba(230, 57, 70, 0.6));
-    opacity: 0.9;
+    opacity: 0.95;
 }
 
 /* Anti-gravity floating animation */
@@ -660,7 +659,6 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: drop-shadow(var(--shadow-medium));
 }
 
 .bouquet-sparkle {

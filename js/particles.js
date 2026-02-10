@@ -99,7 +99,7 @@ class ParticleSystem {
             // In CSS, .particle.heart uses filter/hue-rotate or background image.
             // Let's check css... css uses a data:image svg with fill color.
             // We can change color using mask or just simple filter.
-            particle.style.filter = `hue-rotate(${Math.random() * 60 - 30}deg)`;
+            particle.style.filter = `opacity(${0.3 + Math.random() * 0.7})`;
         } else {
             // Sparkle
             particle.style.width = `${size}px`;
@@ -109,20 +109,23 @@ class ParticleSystem {
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
 
-        // Set initial position
-        particle.style.left = `${x}px`;
-        particle.style.top = `${y}px`;
+        // Set initial position origin (transform will handle actual positioning)
+        particle.style.left = '0px';
+        particle.style.top = '0px';
 
         this.container.appendChild(particle);
 
         // Movement Physics
         let vx = physics.velocity?.x || (Math.random() - 0.5) * 2;
         let vy = physics.velocity?.y || -options.riseSpeed * (Math.random() + 0.5) * 3;
-
         let opacity = 1;
         let scale = 0;
         let life = 100;
-        const decay = 100 / (options.particleLifespan / 16); // Decay per frame
+        const decay = 100 / (options.particleLifespan / 16);
+
+        // Store position for transform-based movement
+        let posX = x;
+        let posY = y;
 
         const animate = () => {
             if (life <= 0) {
@@ -138,14 +141,8 @@ class ParticleSystem {
             // Scale up at start
             if (scale < 1) scale += 0.05;
 
-            const currentLeft = parseFloat(particle.style.left);
-            const currentTop = parseFloat(particle.style.top);
-
             // Apply movement
             vx += (Math.random() - 0.5) * options.drift;
-            vy -= 0.05; // Slight gravity/buoyancy adjustment? No, hearts usually rise.
-            // But for burst, they explode out then maybe drift down or up?
-            // If it's a burst, we want explosion.
 
             // If it was a burst (velocity provided), apply gravity/drag
             if (physics.velocity) {
@@ -157,10 +154,12 @@ class ParticleSystem {
                 vy = -options.riseSpeed;
             }
 
-            particle.style.left = `${currentLeft + vx}px`;
-            particle.style.top = `${currentTop + vy}px`;
+            posX += vx;
+            posY += vy;
+
+            // Single combined transform + opacity update (GPU-accelerated)
+            particle.style.transform = `translate3d(${posX}px, ${posY}px, 0) scale(${scale}) rotate(${life}deg)`;
             particle.style.opacity = opacity;
-            particle.style.transform = `scale(${scale}) rotate(${life}deg)`;
 
             requestAnimationFrame(animate);
         };
